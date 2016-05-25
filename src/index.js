@@ -1,6 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import 'react-fastclick';
+
+
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import './style/main.scss'
@@ -12,8 +14,9 @@ const storeWithMiddleware = applyMiddleware (logger(), promise)(createStore)
 import Routes from './routes'
 
 render(
-    <Provider store={storeWithMiddleware(reducers)}>
-        <Routes />
-    </Provider>,
+
+  <Provider store={storeWithMiddleware(reducers)}>
+    <Routes />
+  </Provider>,
   document.getElementById('app')
 );

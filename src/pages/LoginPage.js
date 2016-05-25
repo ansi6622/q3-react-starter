@@ -11,15 +11,17 @@ class LoginPage extends Component{
   }
   handleSubmit(e){
     e.preventDefault();
-    let email = this.email.value,
+
+    let email = this.email.value, 
         password = this.password.value;
-      if(!password || !email) return;
-      return this.props.userLogin({email, password});
+    if(!password || !email) return;
+    return this.props.userLogin({email, password});
   }
-  render(){
-    return(
+  render() {
+    return (
       <form onSubmit={this.handleSubmit.bind(this)}>
           <h1>{this.props.user.name}</h1>
+
         <input
           type="text"
           placeholder="Email"
@@ -38,10 +40,11 @@ class LoginPage extends Component{
   }
 }
 
-function mapStateToProps(state) {
-    return {user: state.user.cred}
+
+function mapStateToProps(state){
+  return {user: state.user.cred}
 }
 
-export default connect(mapStateToProps,{
-    userLogin
+export default connect(mapStateToProps, {
+  userLogin
 })(LoginPage);

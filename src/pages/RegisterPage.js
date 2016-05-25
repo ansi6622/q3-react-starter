@@ -25,6 +25,7 @@ class RegisterPage extends Component{
   render(){
     return(
       <form onSubmit={this.handleSubmit.bind(this)}>
+        <h1>{this.props.user.name}</h1>
         <input
           type="text"
           placeholder="Name"
@@ -49,10 +50,10 @@ class RegisterPage extends Component{
   }
 }
 
-function mapStateToProps(state) {
-    return {user: state.user.cred}
+function mapStateToProps(state){
+  return { user: state.user.cred}
 }
 
-export default connect(mapStateToProps,{
-    userRegister
+export default connect(mapStateToProps, {
+  userRegister
 })(RegisterPage);
